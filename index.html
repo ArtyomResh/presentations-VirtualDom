@@ -14,143 +14,190 @@
 <body class="shower list">
 
     <header class="caption">
-        <h1>Shower Presentation Engine</h1>
-        <p>Yours Truly, Famous Inc.</p>
+        <h1>О Virtual DOM начистоту</h1>
     </header>
 
-    <section class="slide" id="cover">
-        <h2>Shower Presentation Engine</h2>
-        <p>Brought to you by <a href="http://pepelsbey.net">Vadim Makeev</a></p>
-        <figure>
-            <img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
-            <figcaption class="copyright right white">
-                <a href="http://fiftyfootshadows.net/">© John Carey</a>
-            </figcaption>
-        </figure>
+    <section class="slide slide_title">
+        <h2>О Virtual DOM начистоту</h2>
         <style>
-            #cover h2 {
-                margin: 30px 0 0;
-                color: white;
-                text-align: center;
+            .slide_title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .slide_title h2 {
                 font-size: 70px;
             }
+        </style>
+    </section>
 
-            #cover p {
-                margin: 10px 0 0;
-                text-align: center;
-                color: white;
-                font-style: italic;
-                font-size: 20px;
+    <section class="slide slide_title">
+        <h2>Что такое VirtualDOM</h2>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/vzuh.png" alt="Мем 'Вжух и готово'">
+        </figure>
+    </section>
+
+    <section class="slide slide_title">
+        <h2>Почему возникла потребность в VirtualDOМ</h2>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/browser_working_process_scheme_1.png" alt="Схема работы браузеров на движке webkit">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/browser_working_process_scheme_2.png" alt="Схема работы браузеров на движке webkit">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/browser_working_process_scheme_3.png" alt="Схема работы браузеров на движке webkit">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/browser_working_process_scheme_4.png" alt="Схема работы браузеров на движке webkit">
+        </figure>
+    </section>
+
+    <section class="slide slide_title">
+        <h2>Пример</h2>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/example_1.png" alt="Интерфес приложения и его код">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/example_2.png" alt="Интерфес приложения и его код">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/example_3.png" alt="VirtualDOM объект в виде JS кода">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/example_4.png" alt="Схема работы браузеров на движке webkit">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Альтернативы</h2>
+        <ul>
+            <li><a href="https://lit-html.polymer-project.org/">Lit-html</a></li>
+            <li class="next"><a href="https://viperhtml.js.org/hyper.html">hyperHtml</a></li>
+            <li class="next"><a href="http://imba.io/guides/advanced/performance#performance">Memoized DOM</a></li>
+            <li class="next"><a href="https://developer.mozilla.org/ru/docs/DOM/DOM_Reference">DOM</a></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img height="100%" class="cover" src="pictures/padazhi.png" alt="Мем 'Такс, падажи...'">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/react_vs_js.png" alt="Схема работы браузеров на движке webkit">
+        </figure>
+    </section>
+
+    <section class="slide slide_title">
+        <h2>Плюсы и минусы VirtualDOM</h2>
+    </section>
+
+    <section class="slide">
+        <h3>Плюсы</h3>
+        <ul>
+            <li>Прост в понимании</li>
+            <li>Декларативен</li>
+        </ul>
+        <h3>Минусы</h3>
+        <ul>
+            <li>Процесс сверки может занимать слишком много времени, в результате чего приложение с VirtualDOM может работать медленней, чем без него и с грамотным использованием DOM API</li>
+        </ul>
+        <style>
+            h3 {
+                margin-bottom: 8px;
             }
+        </style>
+    </section>
 
-            #cover p a {
+    <section class="slide slide_title" id="video">
+        <h2>Выводы</h2>
+        <figure>
+            <video
+                width="100%"
+                height="100%"
+                class="cover"
+                autoplay
+                loop
+                src="https://video.twimg.com/tweet_video/DwiloL0W0AEPYUb.mp4"
+            >
+        </figure>
+        <style>
+            #video {
+                justify-content: flex-start;
+            }
+            #video h2 {
                 color: white;
             }
         </style>
     </section>
 
     <section class="slide">
-        <h2>Shower key features</h2>
-        <ol>
-            <li>Built on HTML, CSS and JavaScript</li>
-            <li>Works in all modern browsers</li>
-            <li>Themes are separated from engine</li>
-            <li>Fully keyboard accessible</li>
-            <li>Printable to PDF</li>
-        </ol>
-        <p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
+        <h2>Полезныее ссылки</h2>
+        <ul>
+            <li><a href="https://medium.freecodecamp.org/the-virtual-dom-is-slow-meet-the-memoized-dom-bb19f546cc52">Подробней о Memoized DOM</a></li>
+            <li>
+                <a href="https://scrimba.com/p/c6B9rAM">скринкаст о imba</a> новом языке программирования языке (по сути просто ещё одна абстракция над JS, но так заявляет автор), который использует технологию Memoized DOM.
+            </li>
+            <li>
+                <a href="https://medium.com/@abraztsov/how-virtual-dom-work-567128ed77e9">отличная статья</a>, которая очень подробно рассказывает о том как устроен и работает VDOM
+            </li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h2>Полезныее ссылки</h2>
+        <ul>
+            <li>
+                <a href="https://www.html5rocks.com/ru/tutorials/internals/howbrowserswork/">большая статья</a>, которая очень подробно рассказывает как работают браузеры. Она достаточно старая, и многие вещи успели поменяться, но для общего представления статья бесценна.
+            </li>
+            <li>
+                <a href="https://evilmartians.com/chronicles/optimizing-react-virtual-dom-explained">стать о VirtualDOM</a> от злых марсиан
+            </li>
+        </ul>
     </section>
 
-    <section class="slide">
+    <!-- <section class="slide">
         <h2>Plain text on your slides</h2>
         <p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
     </section>
 
     <section class="slide">
-        <h2>Two columns if you like</h2>
-        <div class="columns two">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-        </div>
-    </section>
+        <h2 class="shout shrink">You can even shout this way</h2>
+    </section> -->
 
-    <section class="slide">
-        <h2>All kind of lists</h2>
-        <ol>
-            <li>Simple lists are marked with bullets</li>
-            <li>Ordered lists begin with a number</li>
-            <li>You can even nest lists one inside another
-                <ul>
-                    <li>Or mix their types</li>
-                    <li>But do not go too far</li>
-                    <li>Otherwise audience will be bored</li>
-                </ul>
-            </li>
-            <li>Look, seven rows exactly!</li>
-        </ol>
-    </section>
 
-    <section class="slide">
-        <h2>Serious citations</h2>
-        <figure>
-            <blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-            </blockquote>
-            <figcaption>Marcus Tullius Cicero</figcaption>
-        </figure>
-    </section>
-
-    <section class="slide">
-        <h2>Code samples</h2>
-        <pre>
-            <code>&lt;!DOCTYPE html&gt;</code>
-            <code class="mark">&lt;html lang="en"&gt;</code>
-            <code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
-            <code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-            <code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-            <code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-            <code><mark>&lt;/head&gt;</mark></code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>Even tables</h2>
-        <table>
-        <tr>
-            <th scope="col">Locavore</th>
-            <th>Umami</th>
-            <th>Helvetica</th>
-            <th>Vegan</th>
-        </tr>
-        <tr>
-            <th scope="row">Fingerstache</th>
-            <td>Kale</td>
-            <td>Chips</td>
-            <td>Keytar</td>
-        </tr>
-        <tr>
-            <th scope="row">Sriracha</th>
-            <td>Gluten-free</td>
-            <td>Ennui</td>
-            <td>Keffiyeh</td>
-        </tr>
-        <tr>
-            <th scope="row">Thundercats</th>
-            <td>Jean</td>
-            <td>Shorts</td>
-            <td>Biodiesel</td>
-        </tr>
-        <tr>
-            <th scope="row">Terry</th>
-            <td>Richardson</td>
-            <td>Swag</td>
-            <td>Blog</td>
-        </tr>
-        </table>
-        <p>It’s good to have information organized.</p>
-    </section>
-
-    <section class="slide" id="picture">
+    <!-- <section class="slide" id="picture">
         <h2>Pictures</h2>
         <figure>
             <img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
@@ -163,48 +210,11 @@
                 color: white;
             }
         </style>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout shrink">You can even shout this way</h2>
-    </section>
-
-    <section class="slide">
-        <h2>Inner navigation</h2>
-        <ol>
-            <li>Lets you reveal list items one by one</li>
-            <li class="next">To keep some key points</li>
-            <li class="next">In secret from audience</li>
-            <li class="next">But it will work only once</li>
-            <li class="next">Nobody wants to see the same joke twice</li>
-        </ol>
-    </section>
-
-    <section class="slide" id="see-more">
-        <h2 class="shout">
-            <img src="pictures/logo.svg" alt="Shower logo">
-            <a href="https://github.com/shower/shower">See more on GitHub</a>
-        </h2>
-        <style>
-            #see-more h2 {
-                font-size: 100px
-            }
-
-            #see-more img {
-                width: 0.72em;
-                height: 0.72em;
-            }
-        </style>
-    </section>
-
-    <footer class="badge">
-        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
-    </footer>
+    </section> -->
 
     <div class="progress"></div>
 
     <script src="node_modules/shower-core/shower.min.js"></script>
     <!-- Copyright © 2018 Yours Truly, Famous Inc. -->
-
 </body>
 </html>
