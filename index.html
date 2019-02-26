@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Shower Presentation Engine</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.5/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.5/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="shower list">
+    <header class="caption">
+        <h1>О Virtual DOM начистоту</h1>
+    </header>
+
+    <section class="slide slide_title">
+        <h2>О Virtual DOM начистоту</h2>
+        <style>
+            .slide_title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .slide_title h2 {
+                font-size: 70px;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide_title">
+        <h2>Что такое VirtualDOM</h2>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/vzuh.png" alt="Мем 'Вжух и готово'">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/VirtualDOM.png" alt="VirtualDOM определение из документации React">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/poker_face.jpg" alt="мем 'Poker Face'">
+        </figure>
+    </section>
+
+    <section class="slide slide_title">
+        <h2>Почему возникла потребность в VirtualDOМ</h2>
+        <style>
+            .slide_title {
+                text-align: center;
+            }
+        </style>
+    </section>
+
+    <section class="slide webkit-engine-working-process">
+        <figure>
+            <img class="cover" src="pictures/browser_working_process_scheme_1.png" alt="Схема работы браузеров на движке webkit">
+        </figure>
+        <figure class='next'>
+            <img class="cover" src="pictures/browser_working_process_scheme_2.png" alt="Схема работы браузеров на движке webkit">
+        </figure>
+        <figure class='next'>
+            <img class="cover" src="pictures/browser_working_process_scheme_3.png" alt="Схема работы браузеров на движке webkit">
+        </figure>
+        <figure class='next'>
+            <img class="cover" src="pictures/browser_working_process_scheme_4.png" alt="Схема работы браузеров на движке webkit">
+        </figure>
+
+        <style>
+            .shower.full .webkit-engine-working-process img{
+                background-color: white;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Простой документ</h2>
+        <pre class="html">
+            <code class='next'>&lt;!DOCTYPE html&gt;</code>
+            <code class='next'>&lt;html lang="en"&gt;</code>
+            <code class='next'>&lt;head&gt;&lt;/head&gt;</code>
+            <code class='next'>&lt;body&gt;</code>
+            <code class='next'>    &lt;ul class="list"&gt;</code>
+            <code class='next'>        &lt;li class="list-item"&gt;Элемент списка&lt;/li&gt;</code>
+            <code class='next'>    &lt;/ul&gt;</code>
+            <code class='next'>&lt;/body&gt;</code>
+        </pre>
+        <style>
+            code {
+                font-size: 18px;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Простой документ</h2>
+        <pre class="javascript">
+            <code class='next'>const listItemOne = document.getElementsByClassName("list-item")[0];</code>
+            <code class='next'>listItemOne.textContent = "Элемент списка 1";</code>
+            <code class='next'>const list = document.getElementsByClassName("list")[0];</code>
+            <code class='next'>const listItemTwo = document.createElement("li");</code>
+            <code class='next'>listItemTwo.classList.add("list-item");</code>
+            <code class='next'>listItemTwo.textContent = "Элемент списка 2";</code>
+            <code class='next'>list.appendChild(listItemTwo);</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Простой документ</h2>
+        <pre class="javascript">
+            <code class='next'>const list = document.getElementsByClassName("list")[0];</code>
+            <code class='next'>list.innerHTML = `</code>
+            <code class='next'>    &lt;li class="list-item"&gt;Элемент списка 1&lt;/li&gt;</code>
+            <code class='next'>    &lt;li class="list-item"&gt;Элемент списка 2&lt;/li&gt;</code>
+            <code class='next'>`;</code>
+        </pre>
+    </section>
+
+    <section class="slide dom-manipulations">
+        <div class="columns two">
+            <div>
+                <h3>Хорошо</h3>
+                <ul class="list_one">
+                  <li class="list-item">Элемент списка</li>
+                </ul>
+                <button onClick='addCodeGoodPracrice()'>
+                  Добавить элемент
+                </button>
+
+            </div>
+
+            <ul class="list">
+                <h3>Плохо</h3>
+                <ul class="list_two">
+                  <li class="list-item">Элемент списка</li>
+                </ul>
+                <button onClick='addCodeBadPracrice()'>
+                  Добавить элемент
+                </button>
+            </ul>
+        </div>
+
+        <script>
+            function addCodeGoodPracrice() {
+                const listItemOne = document.getElementsByClassName("list-item")[0];
+                listItemOne.textContent = "Элемент списка 1";
+
+                const list = document.getElementsByClassName("list_one")[0];
+
+                const listItemTwo = document.createElement("li");
+                listItemTwo.classList.add("list-item");
+                listItemTwo.textContent = "Элемент списка 2";
+                list.appendChild(listItemTwo);
+
+                const listItemThree = document.createElement("li");
+                listItemThree.classList.add("list-item");
+                listItemThree.textContent = "Элемент списка 3";
+                list.appendChild(listItemThree);
+            }
+
+            function addCodeBadPracrice() {
+              const list = document.getElementsByClassName("list_two")[0];
+              list.innerHTML = `
+                <li class="list-item">Элемент списка 1</li>
+                <li class="list-item">Элемент списка 2</li>
+                <li class="list-item">Элемент списка 3</li>
+              `;
+            }
+        </script>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/superhero.png" alt="мем 'Superman'">
+        </figure>
+    </section>
+
+    <section class="slide react-counter">
+        <div id='react-button'></div>
+        <script>
+            'use strict';
+
+            const e = React.createElement;
+
+            class Counter extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = { counter: 0 };
+                    this.handleIncrement = this.handleIncrement.bind(this);
+                    this.handleDecrement = this.handleDecrement.bind(this);
+                }
+
+                handleIncrement() {
+                    this.setState({
+                      counter: ++this.state.counter
+                    });
+                }
+
+                handleDecrement() {
+                    this.setState({
+                      counter: --this.state.counter
+                    });
+                }
+
+                render() {
+                    return e(
+                      "div",
+                      { className: "counter"},
+                      e("div", null, this.state.counter),
+                      e(
+                        "div",
+                        null,
+                        e("button", { onClick: this.handleIncrement }, "+"),
+                        e("button", { onClick: this.handleDecrement }, "-")
+                      )
+                    );
+                }
+            }
+
+            class App extends React.Component {
+                render() {
+                    return e(
+                      "div",
+                      null,
+                      e("h1", null, "Счетчик"),
+                      e(Counter, null)
+                    );
+                }
+            }
+
+            ReactDOM.render(e(App), document.getElementById('react-button'))
+        </script>
+        <style>
+            .react-counter button {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+                background: none;
+                /* outline: 1px solid #c4c4c4; */
+            }
+
+            .react-counter .counter {
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                width: 96px;
+                transform: scale(2);
+            }
+
+            .react-counter .counter div:first-of-type {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 96px;
+                height: 48px;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide_title">
+        <h2>Почему возникла потребность в VirtualDOМ</h2>
+    </section>
+
+    <section class="slide counter-react-dom-flowchart">
+        <figure>
+            <img class="cover" src="pictures/UntitledDiagramPage_1.png" alt="Диаграмма DOM дерева Cчетчика">
+        </figure>
+        <figure class='next'>
+            <img class="cover" src="pictures/UntitledDiagramPage_2.png" alt="Диаграмма DOM дерева Cчетчика">
+        </figure>
+        <figure class='next'>
+            <img class="cover" src="pictures/UntitledDiagramPage_3.png" alt="Диаграмма DOM дерева Cчетчика">
+        </figure>
+        <style>
+            .shower.full .counter-react-dom-flowchart img{
+                height: 80%;
+                background-color: white;
+                object-fit: contain;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide_title">
+        <h2>Плюсы и минусы VirtualDOM</h2>
+    </section>
+
+    <section class="slide">
+        <h3>Плюсы</h3>
+        <ul>
+            <li>Прост в понимании</li>
+            <li>Забирает всю работу по вычислению изменений и применению их к реальному DOM на себя, избавляя вас от кучи работы по запоминанию и соблюдению всех правильных практик при работе с DOM API, а также написанию проверок и бойлерплейт кода для добавления изменений в реальный DOM. Всё что вам нужно делать, это декларативно описывать своё приложение, всю низкоуровневую императивную и сложную работу VirtualDOM возьмёт на себя.</li>
+        </ul>
+        <style>
+            h3 {
+                margin-bottom: 0px;
+            }
+
+            li {
+               font-size: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h3>Минусы</h3>
+        <ul>
+            <li>Процесс сверки может занимать слишком много времени, в результате чего приложение с VirtualDOM может работать медленней, чем без него и с грамотным использованием DOM API</li>
+        </ul>
+    </section>
+
+    <!-- <section class="slide">
+        <figure>
+            <img height="60%" class="cover" src="pictures/padazhi.png" alt="Мем 'Такс, падажи...'">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/react_vs_js.png" alt="Схема работы браузеров на движке webkit">
+        </figure>
+    </section> -->
+
+    <section class="slide">
+        <h2>Альтернативы</h2>
+        <ul>
+            <li><a href="https://lit-html.polymer-project.org/">Lit-html</a></li>
+            <li class="next"><a href="https://viperhtml.js.org/hyper.html">hyperHtml</a></li>
+            <li class="next"><a href="http://imba.io/guides/advanced/performance#performance">Memoized DOM</a></li>
+            <li class="next"><a href="https://developer.mozilla.org/ru/docs/DOM/DOM_Reference">DOM</a></li>
+        </ul>
+    </section>
+
+    <!-- <section class="slide slide_title" id="video">
+        <h2>Выводы</h2>
+        <figure>
+            <video
+                width="100%"
+                height="100%"
+                class="cover"
+                autoplay
+                loop
+                src="https://video.twimg.com/tweet_video/DwiloL0W0AEPYUb.mp4"
+            >
+        </figure>
+        <style>
+            #video {
+                justify-content: flex-start;
+            }
+            #video h2 {
+                color: white;
+            }
+        </style>
+    </section> -->
+
+    <section class="slide">
+        <h2>Полезныее ссылки</h2>
+        <ul>
+            <li><a href="https://medium.freecodecamp.org/the-virtual-dom-is-slow-meet-the-memoized-dom-bb19f546cc52">Подробней о Memoized DOM</a></li>
+            <li>
+                <a href="https://scrimba.com/p/c6B9rAM">скринкаст о imba</a> новом языке программирования языке (по сути просто ещё одна абстракция над JS, но так заявляет автор), который использует технологию Memoized DOM.
+            </li>
+            <li>
+                <a href="https://medium.com/@abraztsov/how-virtual-dom-work-567128ed77e9">отличная статья</a>, которая очень подробно рассказывает о том как устроен и работает VDOM
+            </li>
+            <li>
+                <a href="https://www.html5rocks.com/ru/tutorials/internals/howbrowserswork/">большая статья</a>, которая очень подробно рассказывает как работают браузеры. Она достаточно старая, и многие вещи успели поменяться, но для общего представления статья бесценна.
+            </li>
+            <li>
+                <a href="https://evilmartians.com/chronicles/optimizing-react-virtual-dom-explained">стать о VirtualDOM</a> от злых марсиан
+            </li>
+        </ul>
+    </section>
+
+    <!-- <section class="slide">
+        <h2>Plain text on your slides</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shrink">You can even shout this way</h2>
+    </section> -->
+
+
+    <!-- <section class="slide" id="picture">
+        <h2>Pictures</h2>
+        <figure>
+            <img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
+            <figcaption class="copyright right white">
+                <a href="http://fiftyfootshadows.net/">© John Carey</a>
+            </figcaption>
+        </figure>
+        <style>
+            #picture h2 {
+                color: white;
+            }
+        </style>
+    </section> -->
+
+    <div class="progress"></div>
+
+    <script src="shower/shower.min.js"></script>
+    <!-- Copyright © 2018 Yours Truly, Famous Inc. -->
+</body>
+</html>
