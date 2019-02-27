@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.5/styles/default.min.css">
     <style>
         .shower {
             --slide-ratio: calc(16 / 9);
@@ -12,8 +13,6 @@
     </style>
     <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
-    <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.5/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.5/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 </head>
@@ -92,14 +91,14 @@
     <section class="slide">
         <h2>Простой документ</h2>
         <pre class="html">
-            <code class='next'>&lt;!DOCTYPE html&gt;</code>
-            <code class='next'>&lt;html lang="en"&gt;</code>
-            <code class='next'>&lt;head&gt;&lt;/head&gt;</code>
-            <code class='next'>&lt;body&gt;</code>
-            <code class='next'>    &lt;ul class="list"&gt;</code>
-            <code class='next'>        &lt;li class="list-item"&gt;Элемент списка&lt;/li&gt;</code>
-            <code class='next'>    &lt;/ul&gt;</code>
-            <code class='next'>&lt;/body&gt;</code>
+            <code>&lt;!DOCTYPE html&gt;</code>
+            <code>&lt;html lang="en"&gt;</code>
+            <code>&lt;head&gt;&lt;/head&gt;</code>
+            <code>&lt;body&gt;</code>
+            <code>    &lt;ul class="list"&gt;</code>
+            <code>        &lt;li class="list-item"&gt;Элемент списка&lt;/li&gt;</code>
+            <code>    &lt;/ul&gt;</code>
+            <code>&lt;/body&gt;</code>
         </pre>
         <style>
             code {
@@ -113,10 +112,12 @@
         <pre class="javascript">
             <code class='next'>const listItemOne = document.getElementsByClassName("list-item")[0];</code>
             <code class='next'>listItemOne.textContent = "Элемент списка 1";</code>
-            <code class='next'>const list = document.getElementsByClassName("list")[0];</code>
+            <code class='next'> </code>
             <code class='next'>const listItemTwo = document.createElement("li");</code>
             <code class='next'>listItemTwo.classList.add("list-item");</code>
             <code class='next'>listItemTwo.textContent = "Элемент списка 2";</code>
+            <code class='next'> </code>
+            <code class='next'>const list = document.getElementsByClassName("list")[0];</code>
             <code class='next'>list.appendChild(listItemTwo);</code>
         </pre>
     </section>
@@ -124,18 +125,18 @@
     <section class="slide">
         <h2>Простой документ</h2>
         <pre class="javascript">
-            <code class='next'>const list = document.getElementsByClassName("list")[0];</code>
-            <code class='next'>list.innerHTML = `</code>
-            <code class='next'>    &lt;li class="list-item"&gt;Элемент списка 1&lt;/li&gt;</code>
-            <code class='next'>    &lt;li class="list-item"&gt;Элемент списка 2&lt;/li&gt;</code>
-            <code class='next'>`;</code>
+            <code>const list = document.getElementsByClassName("list")[0];</code>
+            <code>list.innerHTML = `</code>
+            <code>    &lt;li class="list-item"&gt;Элемент списка 1&lt;/li&gt;</code>
+            <code>    &lt;li class="list-item"&gt;Элемент списка 2&lt;/li&gt;</code>
+            <code>`;</code>
         </pre>
     </section>
 
     <section class="slide dom-manipulations">
         <div class="columns two">
             <div>
-                <h3>Хорошо</h3>
+                <h2>Хорошо</h2>
                 <ul class="list_one">
                   <li class="list-item">Элемент списка</li>
                 </ul>
@@ -146,7 +147,7 @@
             </div>
 
             <ul class="list">
-                <h3>Плохо</h3>
+                <h2>Плохо</h2>
                 <ul class="list_two">
                   <li class="list-item">Элемент списка</li>
                 </ul>
@@ -155,34 +156,7 @@
                 </button>
             </ul>
         </div>
-
-        <script>
-            function addCodeGoodPracrice() {
-                const listItemOne = document.getElementsByClassName("list-item")[0];
-                listItemOne.textContent = "Элемент списка 1";
-
-                const list = document.getElementsByClassName("list_one")[0];
-
-                const listItemTwo = document.createElement("li");
-                listItemTwo.classList.add("list-item");
-                listItemTwo.textContent = "Элемент списка 2";
-                list.appendChild(listItemTwo);
-
-                const listItemThree = document.createElement("li");
-                listItemThree.classList.add("list-item");
-                listItemThree.textContent = "Элемент списка 3";
-                list.appendChild(listItemThree);
-            }
-
-            function addCodeBadPracrice() {
-              const list = document.getElementsByClassName("list_two")[0];
-              list.innerHTML = `
-                <li class="list-item">Элемент списка 1</li>
-                <li class="list-item">Элемент списка 2</li>
-                <li class="list-item">Элемент списка 3</li>
-              `;
-            }
-        </script>
+        <script src="scripts/dom-manipulations.js"></script>
     </section>
 
     <section class="slide">
@@ -191,44 +165,243 @@
         </figure>
     </section>
 
-    <section class="slide react-counter">
-        <div id='react-button'></div>
+    <section class="slide slide_title">
+        <h2>Механизм работы VirtualDOМ</h2>
+    </section>
+
+    <!-- Так что вот такая JSX разметка:
+    Будет преобразована к следующему виду: -->
+
+    <section class="slide code-compare">
+        <h2>Преобразование JSX</h2>
+        <div class="columns two">
+            <pre class="html">
+                <code>&lt;ul class="list"&gt;</code>
+                <code>    &lt;li class="list-item"&gt;Элемент списка&lt;/li&gt;</code>
+                <code>&lt;/ul&gt;</code>
+            </pre>
+            <pre class="javascript next">
+                <code><mark class='next'>React.createElement(</mark></code>
+                <code>    <mark class='next'>'ul',</mark></code>
+                <code>    <mark class='next'>{ className: 'list' },</mark></code>
+                <code>    <mark class='next'>React.createElement(</mark></code>
+                <code>        <mark class='next'>'li',</mark></code>
+                <code>        <mark class='next'>{ className: 'list-item' },</mark></code>
+                <code>        <mark class='next'>'Элемент списка'</mark></code>
+                <code>    <mark class='next'>)</mark></code>
+                <code><mark class='next'>);</mark></code>
+            </pre>
+        </div>
+        <style>
+            .code-compare pre code {
+                font-size: 14px;
+            }
+
+            .shower.full .code-compare .next.active mark.next {
+                visibility: visible;
+                background: none;
+            }
+
+            .shower.full .code-compare .next.active mark.next.active  {
+                background: var(--color-yellow);
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Вставляем компоненты в DOM</h2>
+        <pre class="javascript long-code">
+            <code>ReactDOM.render(</code>
+            <div class='next'>
+                <code>    React.createElement(</code>
+                <code>        'ul',</code>
+                <code>        { className: 'list' },</code>
+                <code>        React.createElement(</code>
+                <code>            'li',</code>
+                <code>            { className: 'list-item' },</code>
+                <code>            'Элемент списка'</code>
+                <code>        )</code>
+                <code>    ),</code>
+            </div>
+            <div class='next'>
+                <code>    document.getElementById('react-list')</code>
+                <code>);</code>
+            </div>
+
+        </pre>
+        <style>
+            pre.long-code code {
+                font-size: 14px;
+            }
+        </style>
+    </section>
+
+    <section class="slide code-compare">
+        <h2>Oбъект VirtualDOM</h2>
+        <div class="columns two">
+            <pre class="javascript">
+                <code>{</code>
+                <code>    type: 'ul',(</code>
+                <code>    props: {</code>
+                <code>        className: 'list',</code>
+                <code>        children: [{(</code>
+                <code>            type: 'li',</code>
+                <code>            props: {</code>
+                <code>                className: 'list-item', </code>
+                <code>                children: ['Элемент списка']</code>
+                <code>            }</code>
+                <code>        }]</code>
+                <code>    }</code>
+                <code>}</code>
+            </pre>
+            <pre class="html next">
+                <code>&lt;ul class="list"&gt;</code>
+                <code>    &lt;li class="list-item"&gt;Элемент списка&lt;/li&gt;</code>
+                <code>&lt;/ul&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shrink">VirtualDOM это обычный JS объект</h2>
+    </section>
+
+    <section class="slide code-compare">
+        <h2>1 сценарий</h2>
+        <div class="columns two">
+            <pre class="javascript">
+                <code>{</code>
+                <code>    type: 'li',</code>
+                <code>    props: {</code>
+                <code>        className: 'list-item', </code>
+                <code>        children: ['Элемент списка']</code>
+                <code>    }</code>
+                <code>}</code>
+            </pre>
+            <pre class="javascript">
+                <code>{</code>
+                <code>    type: 'li',</code>
+                <code>    props: {</code>
+                <code>        className: 'list-item', </code>
+                <code>        children: ['Элемент списка']</code>
+                <code>    }</code>
+                <code>}</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide code-compare">
+        <h2>2 сценарий</h2>
+        <div class="columns two">
+            <pre class="javascript">
+                <code>{</code>
+                <code>    type: 'li',</code>
+                <code>    props: {</code>
+                <code>        className: 'list-item', </code>
+                <code>        children: ['Элемент списка']</code>
+                <code>    }</code>
+                <code>}</code>
+            </pre>
+            <pre class="javascript">
+                <code>{</code>
+                <code>    type: 'li',</code>
+                <code>    props: {</code>
+                <code>        className: 'list-item', </code>
+                <code>        children: [<mark>'Элемент списка 1'</mark>]</code>
+                <code>    }</code>
+                <code>}</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide code-compare">
+        <h2>3 сценарий</h2>
+        <div class="columns two">
+            <pre class="javascript">
+                <code>{</code>
+                <code>    type: 'li',</code>
+                <code>    props: {</code>
+                <code>        className: 'list-item', </code>
+                <code>        children: ['Элемент списка']</code>
+                <code>    }</code>
+                <code>}</code>
+            </pre>
+            <pre class="javascript">
+                <code>{</code>
+                <code>    type: <mark>'span'</mark>,</code>
+                <code>    props: {</code>
+                <code>        className: 'list-item', </code>
+                <code>        children: ['Элемент списка']</code>
+                <code>    }</code>
+                <code>}</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide code-compare">
+        <h2>4 сценарий</h2>
+        <div class="columns two">
+            <pre class="javascript">
+                <code>{</code>
+                <code>    type: <mark>'ListItem'</mark>,</code>
+                <code>    props: {</code>
+                <code>        children: ['Элемент списка']</code>
+                <code>    }</code>
+                <code>}</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide react-list">
+        <div id='react-list'></div>
         <script>
             'use strict';
 
             const e = React.createElement;
 
-            class Counter extends React.Component {
+            class List extends React.Component {
                 constructor(props) {
                     super(props);
-                    this.state = { counter: 0 };
-                    this.handleIncrement = this.handleIncrement.bind(this);
-                    this.handleDecrement = this.handleDecrement.bind(this);
+                    this.state = { elements: ['Элемент списка'] };
+                    this.handleAddListItem = this.handleAddListItem.bind(this);
+                    this.handleRemoveListItem = this.handleRemoveListItem.bind(this);
                 }
 
-                handleIncrement() {
+                handleAddListItem() {
                     this.setState({
-                      counter: ++this.state.counter
+                      elements: this.state.elements.concat('Элемент списка')
                     });
                 }
 
-                handleDecrement() {
+                handleRemoveListItem() {
                     this.setState({
-                      counter: --this.state.counter
+                      elements: this.state.elements.slice(0, -1)
                     });
                 }
 
                 render() {
                     return e(
-                      "div",
-                      { className: "counter"},
-                      e("div", null, this.state.counter),
-                      e(
                         "div",
-                        null,
-                        e("button", { onClick: this.handleIncrement }, "+"),
-                        e("button", { onClick: this.handleDecrement }, "-")
-                      )
+                        { className: "columns two" },
+                        e(
+                            "ul",
+                            { className: "list" },
+                            this.state.elements.map(function(item, index) {
+                                return e(
+                                    "li",
+                                    { key: index },
+                                    item,
+                                    ' ',
+                                    index + 1,
+                                )
+                            })
+                        ),
+                        e(
+                            "div",
+                            { className: "controls" },
+                            e("button", { onClick: this.handleAddListItem }, "Добавить элемент" ),
+                            e("button", { onClick: this.handleRemoveListItem }, "Убрать элемент" )
+                        )
                     );
                 }
             }
@@ -236,26 +409,37 @@
             class App extends React.Component {
                 render() {
                     return e(
-                      "div",
-                      null,
-                      e("h1", null, "Счетчик"),
-                      e(Counter, null)
+                        "div",
+                        null,
+                        e("h2", null, "Список"),
+                        e(List, null)
                     );
                 }
             }
 
-            ReactDOM.render(e(App), document.getElementById('react-button'))
+            ReactDOM.render(e(App), document.getElementById('react-list'))
+
         </script>
         <style>
-            .react-counter button {
-                width: 48px;
-                height: 48px;
+            .react-list .controls {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+            }
+            .react-list button {
+                padding: 16px 24px;
                 font-size: 20px;
+                width: 100%;
+                height: 56px;
                 background: none;
-                /* outline: 1px solid #c4c4c4; */
+                flex-grow: 0;
             }
 
-            .react-counter .counter {
+            .react-list button:first-of-type {
+                margin-bottom: 16px;
+            }
+
+            .react-list .counter {
                 margin-left: auto;
                 margin-right: auto;
                 display: flex;
@@ -265,7 +449,7 @@
                 transform: scale(2);
             }
 
-            .react-counter .counter div:first-of-type {
+            .react-list .counter div:first-of-type {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -273,10 +457,6 @@
                 height: 48px;
             }
         </style>
-    </section>
-
-    <section class="slide slide_title">
-        <h2>Почему возникла потребность в VirtualDOМ</h2>
     </section>
 
     <section class="slide counter-react-dom-flowchart">
@@ -291,22 +471,78 @@
         </figure>
         <style>
             .shower.full .counter-react-dom-flowchart img{
-                height: 80%;
                 background-color: white;
                 object-fit: contain;
             }
         </style>
     </section>
 
+    <section class="slide code-compare">
+        <h2>Узкие места</h2>
+        <div class="columns two">
+            <pre class="html">
+                <code>if(canSeeList) {</code>
+                <code>   return &lt;div&gt;</code>
+                <code>       &lt;List /&gt;</code>
+                <code>       &lt;AnotherOneComponent /&gt;</code>
+                <code>   &lt;/div&gt;</code>
+                <code>} else {</code>
+                <code>   return &lt;div&gt;</code>
+                <code>       &lt;AnotherOneComponent /&gt;</code>
+                <code>   &lt;/div&gt;</code>
+                <code>}</code>
+            </pre>
+            <pre class="html next">
+                <code>&lt;div&gt;</code>
+                <code>    { canSeeList && &lt;List /&gt; }</code>
+                <code>    &lt;AnotherOneComponent /&gt;</code>
+                <code>&lt;/div&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide code-compare">
+        <h2>PureComponent и React.Memo</h2>
+        <pre class="javascript">
+          <code>class List extends React.PureComponent {</code>
+          <code>    render() {</code>
+          <code>        /* render using props */</code>
+          <code>    }</code>
+          <code>}</code>
+        </pre>
+
+        <pre class="javascript">
+            <code>const MemoList = React.memo(function List(props)</code>
+            <code>    /* render using props */</code>
+            <code>});</code>
+        </pre>
+    </section>
+
+    <section class="slide code-compare">
+        <h2>Узкие места</h2>
+        <div class="columns two">
+            <pre class="html">
+                <code>&lt;List</code>
+                <code>    items={<mark class='next'>items.map(...)</mark>}</code>
+                <code>    listOptions={<mark class='next'>{bullets: 'square'}</mark>}</code>
+                <code>    onItemClick={<mark class='next'>() => {...}</mark>}</code>
+                <code>&gt;</code>
+            </pre>
+        </div>
+    </section>
+
     <section class="slide slide_title">
-        <h2>Плюсы и минусы VirtualDOM</h2>
+        <h2>Подведём итоги</h2>
     </section>
 
     <section class="slide">
         <h3>Плюсы</h3>
         <ul>
-            <li>Прост в понимании</li>
-            <li>Забирает всю работу по вычислению изменений и применению их к реальному DOM на себя, избавляя вас от кучи работы по запоминанию и соблюдению всех правильных практик при работе с DOM API, а также написанию проверок и бойлерплейт кода для добавления изменений в реальный DOM. Всё что вам нужно делать, это декларативно описывать своё приложение, всю низкоуровневую императивную и сложную работу VirtualDOM возьмёт на себя.</li>
+            <li>Забирает всю работу по вычислению изменений и применению их к реальному DOM на себя</li>
+        </ul>
+        <h3>Минусы</h3>
+        <ul>
+            <li>Процесс сверки может занимать слишком много времени, в результате чего приложение с VirtualDOM может работать медленней, чем без него и с грамотным использованием DOM API</li>
         </ul>
         <style>
             h3 {
@@ -317,13 +553,6 @@
                font-size: 20px;
             }
         </style>
-    </section>
-
-    <section class="slide">
-        <h3>Минусы</h3>
-        <ul>
-            <li>Процесс сверки может занимать слишком много времени, в результате чего приложение с VirtualDOM может работать медленней, чем без него и с грамотным использованием DOM API</li>
-        </ul>
     </section>
 
     <!-- <section class="slide">
@@ -420,3 +649,59 @@
     <!-- Copyright © 2018 Yours Truly, Famous Inc. -->
 </body>
 </html>
+
+
+<!-- <script>
+    'use strict';
+
+    const e = React.createElement;
+
+    class Counter extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = { counter: 0 };
+            this.handleIncrement = this.handleIncrement.bind(this);
+            this.handleDecrement = this.handleDecrement.bind(this);
+        }
+
+        handleIncrement() {
+            this.setState({
+              counter: ++this.state.counter
+            });
+        }
+
+        handleDecrement() {
+            this.setState({
+              counter: this.state.counter
+            });
+        }
+
+        render() {
+            return e(
+              "div",
+              { className: "counter"},
+              e("div", null, this.state.counter),
+              e(
+                "div",
+                null,
+                e("button", { onClick: this.handleIncrement }, "+"),
+                e("button", { onClick: this.handleDecrement }, "-")
+              )
+            );
+        }
+    }
+
+    class App extends React.Component {
+        render() {
+            return e(
+              "div",
+              null,
+              e("h1", null, "Счетчик"),
+              e(Counter, null)
+            );
+        }
+    }
+
+    ReactDOM.render(e(App), document.getElementById('react-counter'))
+
+</script> -->
