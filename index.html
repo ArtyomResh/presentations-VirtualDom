@@ -36,14 +36,60 @@
         </style>
     </section>
 
+    <section class="slide me">
+        <h2 class='bottom'>Реш Артём</h2>
+        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="18" viewBox="0 0 96 24">
+            <path fill="currentColor" fill-rule="evenodd" d="M34.183 6.476s-1.89-1.495-4.198-1.495c-1.522 0-2.306.86-2.306 1.812 0 3.124 9.918 2.128 9.918 9.736 0 4.075-3.46 7.471-8.995 7.471-5.537 0-8.304-2.717-8.304-2.717l2.767-4.483s2.538 2.219 5.537 2.219c1.753 0 2.768-.905 2.768-2.038 0-3.396-9.919-2.49-9.919-9.736C21.451 3.17 24.681 0 29.755 0c4.474 0 7.104 2.264 7.104 2.264l-2.676 4.212zm18.684 0S50.975 4.98 48.669 4.98c-1.522 0-2.306.86-2.306 1.812 0 3.124 9.917 2.128 9.917 9.736 0 4.075-3.46 7.471-8.995 7.471-5.535 0-8.303-2.717-8.303-2.717L41.75 16.8s2.537 2.219 5.535 2.219c1.753 0 2.768-.905 2.768-2.038 0-3.396-9.918-2.49-9.918-9.736C40.135 3.17 43.364 0 48.438 0c4.475 0 7.105 2.264 7.105 2.264l-2.676 4.212zm18.683 0S69.66 4.98 67.352 4.98c-1.522 0-2.307.86-2.307 1.812 0 3.124 9.92 2.128 9.92 9.736 0 4.075-3.461 7.471-8.997 7.471s-8.304-2.717-8.304-2.717l2.768-4.483s2.538 2.219 5.536 2.219c1.753 0 2.768-.905 2.768-2.038 0-3.396-9.918-2.49-9.918-9.736C58.818 3.17 62.048 0 67.122 0c4.474 0 7.104 2.264 7.104 2.264L71.55 6.476zM11.764 24c4.382 0 6.227-1.585 6.227-1.585v-5.886s-1.614 1.81-5.305 1.81c-3.69 0-6.458-2.716-6.458-6.339 0-3.622 2.768-6.34 6.458-6.34 3.691 0 5.305 1.811 5.305 1.811V1.585S16.146 0 11.764 0C5.306 0 0 5.208 0 12s5.306 12 11.764 12zm72.334-13.177h2.307c2.076 0 3.229-1.132 3.229-2.808 0-1.675-1.153-2.807-3.23-2.807h-2.306v5.615zM96 23.32h-6.735l-4.198-8.377h-.97v8.377h-5.996V.68h9.365C92.4.68 95.63 3.85 95.63 7.7c0 5.388-4.75 6.565-4.75 6.565L96 23.321z"/>
+        </svg>
+        <figure>
+            <img class="cover" src="pictures/me.jpg" alt="мем 'Poker Face'">
+        </figure>
+        <style>
+            .me {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            .me.slide::after {
+                content: none;
+            }
+
+            .me img {
+                top: 0;
+                left: 0;
+                transform: translate(0, 0);
+            }
+
+            .me .bottom {
+                margin-top: auto;
+                margin-bottom: 0px;
+                color: #000;
+            }
+
+            .me svg {
+              margin-bottom: 40px;
+            }
+        </style>
+    </section>
+
     <section class="slide slide_title">
-        <h2>Что такое VirtualDOM</h2>
+        <h2>Что такое VirtualDOM?</h2>
     </section>
 
     <section class="slide">
         <figure>
-            <img class="cover" src="pictures/vzuh.png" alt="Мем 'Вжух и готово'">
+            <img class="cover fade-in" src="pictures/vzuh.png" alt="Мем 'Вжух и готово'">
         </figure>
+        <style>
+            .fade-in {
+              opacity: 0;
+              transition: opacity 20000ms linear;
+            }
+
+            .slide.active .fade-in{
+              opacity: 1;
+            }
+        </style>
     </section>
 
     <section class="slide">
@@ -59,7 +105,7 @@
     </section>
 
     <section class="slide slide_title">
-        <h2>Почему возникла потребность в VirtualDOМ</h2>
+        <h2>Почему возникла потребность в VirtualDOМ?</h2>
         <style>
             .slide_title {
                 text-align: center;
@@ -79,6 +125,15 @@
         </figure>
         <figure class='next'>
             <img class="cover" src="pictures/browser_working_process_scheme_4.png" alt="Схема работы браузеров на движке webkit">
+        </figure>
+        <figure class='next'>
+            <img class="cover" src="pictures/browser_working_process_scheme_5.png" alt="Схема работы браузеров на движке webkit">
+        </figure>
+        <figure class='next'>
+            <img class="cover" src="pictures/browser_working_process_scheme_6.png" alt="Схема работы браузеров на движке webkit">
+        </figure>
+        <figure class='next'>
+            <img class="cover" src="pictures/browser_working_process_scheme_7.png" alt="Схема работы браузеров на движке webkit">
         </figure>
 
         <style>
@@ -176,8 +231,8 @@
         <h2>Преобразование JSX</h2>
         <div class="columns two">
             <pre class="html">
-                <code>&lt;ul class="list"&gt;</code>
-                <code>    &lt;li class="list-item"&gt;Элемент списка&lt;/li&gt;</code>
+                <code>&lt;ul className="list"&gt;</code>
+                <code>    &lt;li className="list-item"&gt;Элемент списка&lt;/li&gt;</code>
                 <code>&lt;/ul&gt;</code>
             </pre>
             <pre class="javascript next">
@@ -241,10 +296,10 @@
         <div class="columns two">
             <pre class="javascript">
                 <code>{</code>
-                <code>    type: 'ul',(</code>
+                <code>    type: 'ul',</code>
                 <code>    props: {</code>
                 <code>        className: 'list',</code>
-                <code>        children: [{(</code>
+                <code>        children: [{</code>
                 <code>            type: 'li',</code>
                 <code>            props: {</code>
                 <code>                className: 'list-item', </code>
@@ -260,10 +315,6 @@
                 <code>&lt;/ul&gt;</code>
             </pre>
         </div>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout shrink">VirtualDOM это обычный JS объект</h2>
     </section>
 
     <section class="slide code-compare">
@@ -343,7 +394,7 @@
         <div class="columns two">
             <pre class="javascript">
                 <code>{</code>
-                <code>    type: <mark>'ListItem'</mark>,</code>
+                <code>    type: <mark>ListItem</mark>,</code>
                 <code>    props: {</code>
                 <code>        children: ['Элемент списка']</code>
                 <code>    }</code>
@@ -469,10 +520,13 @@
         <figure class='next'>
             <img class="cover" src="pictures/UntitledDiagramPage_3.png" alt="Диаграмма DOM дерева Cчетчика">
         </figure>
+        <figure class='next'>
+            <img class="cover" src="pictures/UntitledDiagramPage_4.png" alt="Диаграмма DOM дерева Cчетчика">
+        </figure>
         <style>
             .shower.full .counter-react-dom-flowchart img{
                 background-color: white;
-                object-fit: contain;
+                object-fit: cover;
             }
         </style>
     </section>
@@ -536,112 +590,33 @@
     </section>
 
     <section class="slide">
-        <h3>Плюсы</h3>
-        <ul>
-            <li>Забирает всю работу по вычислению изменений и применению их к реальному DOM на себя</li>
-        </ul>
-        <h3>Минусы</h3>
-        <ul>
-            <li>Процесс сверки может занимать слишком много времени, в результате чего приложение с VirtualDOM может работать медленней, чем без него и с грамотным использованием DOM API</li>
-        </ul>
-        <style>
-            h3 {
-                margin-bottom: 0px;
-            }
-
-            li {
-               font-size: 20px;
-            }
-        </style>
-    </section>
-
-    <!-- <section class="slide">
-        <figure>
-            <img height="60%" class="cover" src="pictures/padazhi.png" alt="Мем 'Такс, падажи...'">
-        </figure>
-    </section>
-
-    <section class="slide">
-        <figure>
-            <img class="cover" src="pictures/react_vs_js.png" alt="Схема работы браузеров на движке webkit">
-        </figure>
-    </section> -->
-
-    <section class="slide">
         <h2>Альтернативы</h2>
         <ul>
             <li><a href="https://lit-html.polymer-project.org/">Lit-html</a></li>
             <li class="next"><a href="https://viperhtml.js.org/hyper.html">hyperHtml</a></li>
             <li class="next"><a href="http://imba.io/guides/advanced/performance#performance">Memoized DOM</a></li>
-            <li class="next"><a href="https://developer.mozilla.org/ru/docs/DOM/DOM_Reference">DOM</a></li>
+            <li class="next"><a href="https://developer.mozilla.org/ru/docs/DOM/DOM_Reference">DOM</a><img</li>
         </ul>
     </section>
 
-    <!-- <section class="slide slide_title" id="video">
-        <h2>Выводы</h2>
-        <figure>
-            <video
-                width="100%"
-                height="100%"
-                class="cover"
-                autoplay
-                loop
-                src="https://video.twimg.com/tweet_video/DwiloL0W0AEPYUb.mp4"
-            >
-        </figure>
-        <style>
-            #video {
-                justify-content: flex-start;
-            }
-            #video h2 {
-                color: white;
-            }
-        </style>
-    </section> -->
-
     <section class="slide">
-        <h2>Полезныее ссылки</h2>
+        <h2>Полезные ссылки</h2>
         <ul>
-            <li><a href="https://medium.freecodecamp.org/the-virtual-dom-is-slow-meet-the-memoized-dom-bb19f546cc52">Подробней о Memoized DOM</a></li>
+            <li><a href="https://medium.freecodecamp.org/the-virtual-dom-is-slow-meet-the-memoized-dom-bb19f546cc52">подробней о Memoized DOM</a></li>
             <li>
-                <a href="https://scrimba.com/p/c6B9rAM">скринкаст о imba</a> новом языке программирования языке (по сути просто ещё одна абстракция над JS, но так заявляет автор), который использует технологию Memoized DOM.
+                <a href="https://scrimba.com/p/c6B9rAM">скринкаст о imba</a> — языке программирования, который использует технологию Memoized DOM
             </li>
             <li>
-                <a href="https://medium.com/@abraztsov/how-virtual-dom-work-567128ed77e9">отличная статья</a>, которая очень подробно рассказывает о том как устроен и работает VDOM
+                <a href="https://medium.com/@abraztsov/how-virtual-dom-work-567128ed77e9">отличная статья</a>, подробно рассказывает о том, как устроен и работает VDOM
             </li>
             <li>
-                <a href="https://www.html5rocks.com/ru/tutorials/internals/howbrowserswork/">большая статья</a>, которая очень подробно рассказывает как работают браузеры. Она достаточно старая, и многие вещи успели поменяться, но для общего представления статья бесценна.
+                <a href="https://www.html5rocks.com/ru/tutorials/internals/howbrowserswork/">большая статья</a>, о том, как работают браузеры.
             </li>
             <li>
-                <a href="https://evilmartians.com/chronicles/optimizing-react-virtual-dom-explained">стать о VirtualDOM</a> от злых марсиан
+                <a href="https://evilmartians.com/chronicles/optimizing-react-virtual-dom-explained">статья о VirtualDOM</a> от Злых Марсиан
             </li>
         </ul>
     </section>
-
-    <!-- <section class="slide">
-        <h2>Plain text on your slides</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout shrink">You can even shout this way</h2>
-    </section> -->
-
-
-    <!-- <section class="slide" id="picture">
-        <h2>Pictures</h2>
-        <figure>
-            <img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
-            <figcaption class="copyright right white">
-                <a href="http://fiftyfootshadows.net/">© John Carey</a>
-            </figcaption>
-        </figure>
-        <style>
-            #picture h2 {
-                color: white;
-            }
-        </style>
-    </section> -->
 
     <div class="progress"></div>
 
@@ -649,59 +624,3 @@
     <!-- Copyright © 2018 Yours Truly, Famous Inc. -->
 </body>
 </html>
-
-
-<!-- <script>
-    'use strict';
-
-    const e = React.createElement;
-
-    class Counter extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = { counter: 0 };
-            this.handleIncrement = this.handleIncrement.bind(this);
-            this.handleDecrement = this.handleDecrement.bind(this);
-        }
-
-        handleIncrement() {
-            this.setState({
-              counter: ++this.state.counter
-            });
-        }
-
-        handleDecrement() {
-            this.setState({
-              counter: this.state.counter
-            });
-        }
-
-        render() {
-            return e(
-              "div",
-              { className: "counter"},
-              e("div", null, this.state.counter),
-              e(
-                "div",
-                null,
-                e("button", { onClick: this.handleIncrement }, "+"),
-                e("button", { onClick: this.handleDecrement }, "-")
-              )
-            );
-        }
-    }
-
-    class App extends React.Component {
-        render() {
-            return e(
-              "div",
-              null,
-              e("h1", null, "Счетчик"),
-              e(Counter, null)
-            );
-        }
-    }
-
-    ReactDOM.render(e(App), document.getElementById('react-counter'))
-
-</script> -->
